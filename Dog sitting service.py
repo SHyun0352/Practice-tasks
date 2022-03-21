@@ -27,8 +27,9 @@ def printRoll():
 
 roll = []
 
-choice=0
+choice = 0
 
+# Main routine
 while choice != 5:
     print("-----------------------------------------------------------------------")
     print("Welcome to DogsRus")
@@ -57,5 +58,12 @@ while choice != 5:
         printRoll()
 
     elif choice >= 5:
-        print("Exiting the system.")
-        quit()
+        exit = input("Do you want to exit this programme? (Y/N)").upper()
+        if exit == "Y":
+            print()
+            print("====================================================")
+            print("Exiting this program.")
+            print("====================================================")
+            quit()
+        else:
+            choice = 0
