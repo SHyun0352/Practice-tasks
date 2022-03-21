@@ -15,9 +15,9 @@ def rps(name):
 
         player = choose_shape()
 
-        if player == "Paper" and ai == "Scissors" or \
-                player == "Scissors" and ai == "Rock" or \
-                player == "Rock" and ai == "Scissors":
+        if player == "Scissors" and ai == "Paper" or \
+                player == "Rock" and ai == "Scissors" or \
+                player == "Paper" and ai == "Rock":
 
             player_win_count += 1
             happy(nickname, player_win_count, ai_win_count)
@@ -30,6 +30,7 @@ def rps(name):
             print("'Sad noises' You lost.")
             sadge(nickname, player_win_count, ai_win_count)
 
+    if player_win_count >= 3 or ai_win_count >= 3:
         calculate_result(nickname, ai_win_count, player_win_count)
 
 
@@ -65,7 +66,7 @@ def calculate_result(nickname, player_win_count, ai_win_count):
     print("========================================================")
     if player_win_count > ai_win_count:
         difference = player_win_count - ai_win_count
-        print(f"congratulations! you won game by {difference}point(s) difference.")
+        print(f"congratulations! you won game by {difference} point(s) difference.")
 
     elif player_win_count < ai_win_count:
         difference = ai_win_count - player_win_count
@@ -74,12 +75,14 @@ def calculate_result(nickname, player_win_count, ai_win_count):
     end_game = input("DO you want to continue the game? (Y/N): ").upper()
 
     if end_game == "Y":
-        rps()
+        rps(name)
 
-
+# Main routine
 print()
 print("====================================================")
 print("RPS game \nRPS stands for Rock, Paper, Scissors. Beat the computer by guess what the A.I is going to draw!")
 name = input("What is your name?: ")
 rps(name)
 print("Thank you for playing my game")
+
+# I do not know why this code is not running properly.
